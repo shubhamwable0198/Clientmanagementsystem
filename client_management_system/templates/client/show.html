@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+
+    {% block title %}
+    <title>show</title>
+    {% endblock %}
+
+{% block content %}
+<table class="table table-dark table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Email</th>
+        <th>department</th>
+        <th>DateOfJoining</th>
+        <th>Status</th>
+        <th>ProjectDomain</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in obj %}
+    <tr>
+        <td>{{i.cid}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.company}}</td>
+        <td>{{i.email_id}}</td>
+        <td>{{i.department}}</td>
+        <td>{{i.date_of_joining}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.projectDomain}}</td>
+
+
+        <td>
+            <a href="{% url 'update' i.cid %}" class="btn btn-success">UPDATE</a>
+
+            <a href="{% url 'delete' i.cid %}" class="btn btn-warning">DELETE</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
